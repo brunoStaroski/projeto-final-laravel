@@ -1,5 +1,6 @@
 <template>
     <div>
+        cliente
         <table class='table mt-4'>
         <thead>
         <tr>
@@ -8,10 +9,10 @@
         </tr>
         </thead>
         <tbody>
-        <tr v-for="cliente in clientes" :key="cliente.id" v-if="clientes.lenght > 0">
+        <!--<tr v-for="cliente in clientes" :key="cliente.id" v-if="clientes.lenght > 0">
             <td>{{cliente.nome}}</td>
             <td>{{cliente.email}}</td>
-        </tr>
+        </tr>-->
         </tbody>
         </table>
 
@@ -37,11 +38,11 @@ export default {
     name: "Cliente",
 }
 
-onMounted(async () => {
+/*onMounted(async () => {
     let response = await axios.get("/api/obter-lista-clientes");
     clientes.value = response.data.clientes;
     console.log('clientes', clientes.value);
-})
+})*/
 
 </script>
 

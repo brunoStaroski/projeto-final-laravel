@@ -7,10 +7,10 @@
             <router-link to="/cliente">
                 <i class="bi bi-person"></i> Clientes
             </router-link>
-            <router-link to="/">
+            <router-link to="/veiculo">
                 <i class="bi bi-box2-fill"></i> Veiculos
             </router-link>
-            <router-link to="/">
+            <router-link to="/venda">
                 <i class="bi bi-cart-fill"></i> Vendas
             </router-link>
         </nav>
