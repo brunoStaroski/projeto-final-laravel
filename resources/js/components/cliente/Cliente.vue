@@ -1,6 +1,17 @@
 <template>
     <div>
-        cliente
+        <br>
+        <div class="legend1">
+            <fieldset>
+                <legend> Cadastro </legend>
+                <label>Nome: </label>
+                <input class="campo_nome" type="text" name="nome" id="nome" placeholder="Digite o Nome"><br><br>
+                <label>Email: </label>
+                <input class="campo_email" type="text" name="email" id="email" placeholder="Digite o E-mail"><br>
+            </fieldset><br>
+            <input class="campo_enviar" type="submit" name="enviar" id="enviar"><br><br>
+        </div>
+        <hr>
         <table class='table mt-4'>
         <thead>
         <tr>
@@ -15,15 +26,6 @@
         </tr>-->
         </tbody>
         </table>
-
-
-
-
-
-
-
-
-
 
 
     </div>
@@ -47,5 +49,62 @@ export default {
 </script>
 
 <style scoped>
+
+tr th {
+    color: #353f49;
+    background-color: white;
+    display: inline;
+    border-style: none;
+    padding: 15px;
+    margin: 5px auto;
+}
+
+div label {
+    color: #353f49;
+    border: none;
+    height: 60px;
+    line-height: 30px;
+    font-weight: bold;
+}
+
+fieldset
+{
+    color: #353f49;
+    background-color:white;
+    max-width:500px;
+    padding:16px;
+    border-radius: 10px;
+}
+.legend1
+{
+    margin-bottom:0px;
+    margin-left:20px;
+    font-weight: bold;
+}
+
+div .campo_nome {
+    border-style: solid;
+}
+
+div .campo_email {
+    border-style: solid;
+}
+
+.campo_enviar {
+    color: white;
+    background-color: #353f49;
+    border: none;
+    height: 50px;
+    line-height: 20px;
+    padding: 0 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 30px;
+}
+
+.campo_enviar:hover {
+    transform: scale(1.05);
+}
 
 </style>
