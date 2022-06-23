@@ -12,3 +12,8 @@ Route::get('/obter-lista-clientes',[ClienteController::class, 'obterListaCliente
 Route::post('/salvar-cliente',[ClienteController::class, 'salvarCliente']);
 Route::post('/editar-cliente',[ClienteController::class, 'editarCliente']);
 Route::post('/deletar-cliente/{id}',[ClienteController::class, 'deletarCliente']);
+
+Route::get('/obter-lista-veiculos',[ClienteController::class, 'obterListaVeiculo']);
+Route::post('/salvar-veiculo',[ClienteController::class, 'salvarVeiculo']);
+Route::post('/editar-veiculo',[ClienteController::class, 'editarVeiculo']);
+Route::post('/deletar-veiculo/{id}',[ClienteController::class, 'deletarVeiculo']);
