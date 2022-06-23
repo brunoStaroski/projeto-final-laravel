@@ -28,18 +28,13 @@ class ClienteController extends Controller
         $cliente->id = $request->id;
         $cliente->nome = $request->nome;
         $cliente->email = $request->email;
-        $retorno = $cliente->update();
-        Log::error($retorno);
+        $cliente->update();
         return response()->json([], 200);
     }
 
-    public function deletarCliente($id) {
-        $cliente = Cliente::query("select * from cliente where id = ".$id);
-        if ($cliente != null) {
-            $cliente->delete();
-            return response()->json([], 200);
-        } else {
-            return response()->json([], 400);
-        }
+    public function deletarCliente(Request $request) {
+        $cliente = Cliente::findOrFail($request->id);
+        $cliente->delete();
+        return response()->json([], 200);
     }
 }

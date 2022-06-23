@@ -12,7 +12,7 @@
             <input class="campo_enviar" type="submit" name="enviar" id="enviar" @click="gravar"><br><br>
         </div>
         <hr>
-        <table class="mt-4">
+        <table class="table mt-4">
         <thead>
         <tr>
             <th>Nome</th>
@@ -25,10 +25,10 @@
                 <td>{{cliente.nome}}</td>
                 <td>{{cliente.email}}</td>
                 <td>
-                    <button @click="carregarInfoParaEdicao(cliente)">
+                    <button class="m-1" @click="carregarInfoParaEdicao(cliente)">
                         <font-awesome-icon icon="fa-solid fa-pencil" />
                     </button>
-                    <button @click="deletarCliente(cliente)">
+                    <button class="m-1" @click="deletarCliente(cliente)">
                         <font-awesome-icon icon="fa-solid fa-trash" />
                     </button>
                 </td>
@@ -42,15 +42,13 @@
 
 <script>
 import {onMounted, ref} from "vue";
-let clientes = ref([]);
-
 
 export default {
     name: "Cliente",
 
     data() {
         return {
-            cliente: {nome: '', email: ''}
+            cliente: {id: null, nome: '', email: ''}
         }
 
     },
@@ -67,8 +65,8 @@ export default {
 
     methods: {
         gravar: function () {
-            console.log(this.cliente);
-            if (this.cliente.id !== null) {
+            console.log('cliente', this.cliente);
+            if (this.cliente.id) {
                 this.editarCliente();
             } else {
                 this.salvarCliente();
@@ -108,7 +106,6 @@ export default {
 
         editarCliente: function () {
             axios.post('/api/editar-cliente', this.cliente).then((response) => {
-                console.log(response);
                 if (response.status === 200) {
                     console.log('cliente editado com sucesso!');
                     this.obterListaClientes();
@@ -149,10 +146,12 @@ fieldset
 
 div .campo_nome {
     border-style: solid;
+    margin-left: 5px;
 }
 
 div .campo_email {
     border-style: solid;
+    margin-left: 10px;
 }
 
 .campo_enviar {
