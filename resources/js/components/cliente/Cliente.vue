@@ -20,10 +20,10 @@
         </tr>
         </thead>
         <tbody>
-        <!--<tr v-for="cliente in clientes" :key="cliente.id" v-if="clientes.lenght > 0">
-            <td>{{cliente.nome}}</td>
-            <td>{{cliente.email}}</td>
-        </tr>-->
+            <tr v-for="cliente in clientes" :key="cliente.id" v-if="clientes.length > 0">
+                <td>{{cliente.nome}}</td>
+                <td>{{cliente.email}}</td>
+            </tr>
         </tbody>
         </table>
 
@@ -38,26 +38,24 @@ let clientes = ref([]);
 
 export default {
     name: "Cliente",
-}
 
-/*onMounted(async () => {
-    let response = await axios.get("/api/obter-lista-clientes");
-    clientes.value = response.data.clientes;
-    console.log('clientes', clientes.value);
-})*/
+    setup: function () {
+        const clientes = ref([]);
+        onMounted( () => {
+            axios.get("/api/obter-lista-clientes").then((response) => {
+                console.log(response.data.clientes);
+                clientes.value = response.data.clientes;
+                console.log('clientes', clientes.value[0]);
+            });
+        })
+        return {clientes};
+    }
+
+}
 
 </script>
 
 <style scoped>
-
-tr th {
-    color: #353f49;
-    background-color: white;
-    display: inline;
-    border-style: none;
-    padding: 15px;
-    margin: 5px auto;
-}
 
 div label {
     color: #353f49;
