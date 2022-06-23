@@ -12,7 +12,7 @@
             <input class="campo_enviar" type="submit" name="enviar" id="enviar" @click="gravar"><br><br>
         </div>
         <hr>
-        <table>
+        <table class="mt-4">
         <thead>
         <tr>
             <th>Nome</th>
