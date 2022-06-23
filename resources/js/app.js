@@ -3,5 +3,10 @@ import './bootstrap';
 import App from './components/App';
 import {createApp} from "vue";
 import router from './router/index';
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import {fas} from "@fortawesome/free-solid-svg-icons";
 
-createApp(App).use(router).mount("#app");
+library.add(fas);
+
+createApp(App).use(router).component('font-awesome-icon', FontAwesomeIcon).mount("#app");

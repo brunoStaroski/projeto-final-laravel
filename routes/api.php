@@ -9,3 +9,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/obter-lista-clientes',[ClienteController::class, 'obterListaClientes']);
+Route::post('/salvar-cliente',[ClienteController::class, 'salvarCliente']);
+Route::post('/editar-cliente',[ClienteController::class, 'editarCliente']);
+Route::post('/deletar-cliente/{id}',[ClienteController::class, 'deletarCliente']);
