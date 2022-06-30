@@ -59,7 +59,7 @@ export default {
 
     setup: function () {
         const veiculos = ref([]);
-        onMounted( async () => {
+        onMounted(async () => {
             await axios.get('/api/obter-lista-veiculos').then((response) => {
                 veiculos.value = response.data.veiculos;
             });
@@ -77,13 +77,12 @@ export default {
             }
         },
 
-        salvarVeiculo: function() {
+        salvarVeiculo: function () {
             axios.post('/api/salvar-veiculo', this.veiculo).then((response) => {
                 if (response.status === 200) {
                     console.log('veiculo salvo com sucesso!');
                 }
             })
-        },
         },
 
         deletarVeiculo: function (veiculo) {
@@ -91,7 +90,6 @@ export default {
                 console.log(response);
                 if (response.status === 200) {
                     console.log('veiculo deletado com sucesso!');
-                    this.obterListaVeiculos();
                 } else {
                     console.log("erro ao deletar veiculo");
                 }
@@ -110,7 +108,7 @@ export default {
                 }
             })
         }
-
+    }
 }
 
 </script>

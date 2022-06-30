@@ -86,7 +86,6 @@ export default {
                 console.log(response);
                 if (response.status === 200) {
                     console.log('cliente deletado com sucesso!');
-                    this.obterListaClientes();
                 } else {
                     console.log("erro ao deletar cliente");
                 }

@@ -38175,15 +38175,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       });
     },
     deletarCliente: function deletarCliente(cliente) {
-      var _this = this;
-
       axios.post('/api/deletar-cliente/' + cliente.id).then(function (response) {
         console.log(response);
 
         if (response.status === 200) {
           console.log('cliente deletado com sucesso!');
-
-          _this.obterListaClientes();
         } else {
           console.log("erro ao deletar cliente");
         }
@@ -38310,34 +38306,30 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           console.log('veiculo salvo com sucesso!');
         }
       });
+    },
+    deletarVeiculo: function deletarVeiculo(veiculo) {
+      axios.post('/api/deletar-veiculo/' + veiculo.id).then(function (response) {
+        console.log(response);
+
+        if (response.status === 200) {
+          console.log('veiculo deletado com sucesso!');
+        } else {
+          console.log("erro ao deletar veiculo");
+        }
+      });
+    },
+    carregarInfoParaEdicao: function carregarInfoParaEdicao(veiculo) {
+      this.veiculo = veiculo;
+    },
+    editarVeiculo: function editarVeiculo() {
+      axios.post('/api/editar-veiculo', this.veiculo).then(function (response) {
+        console.log(response);
+
+        if (response.status === 200) {
+          console.log('veiculo editado com sucesso!');
+        }
+      });
     }
-  },
-  deletarVeiculo: function deletarVeiculo(veiculo) {
-    var _this = this;
-
-    axios.post('/api/deletar-veiculo/' + veiculo.id).then(function (response) {
-      console.log(response);
-
-      if (response.status === 200) {
-        console.log('veiculo deletado com sucesso!');
-
-        _this.obterListaVeiculos();
-      } else {
-        console.log("erro ao deletar veiculo");
-      }
-    });
-  },
-  carregarInfoParaEdicao: function carregarInfoParaEdicao(veiculo) {
-    this.veiculo = veiculo;
-  },
-  editarVeiculo: function editarVeiculo() {
-    axios.post('/api/editar-veiculo', this.veiculo).then(function (response) {
-      console.log(response);
-
-      if (response.status === 200) {
-        console.log('veiculo editado com sucesso!');
-      }
-    });
   }
 });
 
@@ -38949,7 +38941,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
       "class": "m-1",
       onClick: function onClick($event) {
-        return _ctx.carregarInfoParaEdicao(veiculo);
+        return $options.carregarInfoParaEdicao(veiculo);
       }
     }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_font_awesome_icon, {
       icon: "fa-solid fa-pencil"
@@ -38958,7 +38950,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     , _hoisted_16), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
       "class": "m-1",
       onClick: function onClick($event) {
-        return _ctx.deletarVeiculo(veiculo);
+        return $options.deletarVeiculo(veiculo);
       }
     }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_font_awesome_icon, {
       icon: "fa-solid fa-trash"

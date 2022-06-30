@@ -32,12 +32,13 @@ class veiculoController extends Controller
         $veiculo->modelo = $request->modelo;
         $veiculo->valor = $request->valor;
         $retorno = $veiculo->update();
-        Log::error($retorno);
         return response()->json([], 200);
     }
 
     public function deletarVeiculo(Request $request) {
-        $cliente = Cliente::findOrFail($request->id);
-        $cliente->delete();
+        Log::error('chegou aqui');
+        $veiculo = Veiculo::findOrFail($request->id);
+        $veiculo->delete();
+        return response()->json([], 200);
     }
 }
