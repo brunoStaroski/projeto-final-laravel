@@ -81,15 +81,9 @@ export default {
             axios.post('/api/salvar-veiculo', this.veiculo).then((response) => {
                 if (response.status === 200) {
                     console.log('veiculo salvo com sucesso!');
-                    this.obterListaVeiculos();
                 }
             })
         },
-
-        obterListaVeiculos: async function() {
-            await axios.get('/api/obter-lista-veiculos').then((response) => {
-                veiculos.value = response.data.veiculos;
-            });
         },
 
         deletarVeiculo: function (veiculo) {
@@ -113,12 +107,9 @@ export default {
                 console.log(response);
                 if (response.status === 200) {
                     console.log('veiculo editado com sucesso!');
-                    this.obterListaVeiculos();
                 }
             })
         }
-
-    }
 
 }
 

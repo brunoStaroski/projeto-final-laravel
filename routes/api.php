@@ -20,5 +20,5 @@ Route::post('/salvar-veiculo',[VeiculoController::class, 'salvarVeiculo']);
 Route::post('/editar-veiculo',[VeiculoController::class, 'editarVeiculo']);
 Route::post('/deletar-veiculo/{id}',[VeiculoController::class, 'deletarVeiculo']);
 
-Route::get('/obter-lista-venda',[VeiculoController::class, 'obterListaVeiculo']);
-Route::post('/salvar-venda',[VeiculoController::class, 'salvarVeiculo']);
+Route::get('/obter-lista-vendas',[VendaController::class, 'obterListaVendas']);
+Route::post('/salvar-venda',[VendaController::class, 'salvarVenda']);

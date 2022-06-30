@@ -13,4 +13,14 @@ use Illuminate\Database\Eloquent\Builder;
 class Venda extends Model
 {
     use HasFactory;
+
+    protected $table = 'vendas';
+
+    protected $fillable = [
+        'id',
+        'id_cliente',
+        'id_veiculo',
+        'updated_at',
+        'created_at'
+    ];
 }

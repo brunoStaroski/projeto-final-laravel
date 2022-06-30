@@ -30,7 +30,7 @@ export default {
 
 .content {
     grid-area: content;
-    margin-left: 10px;
+    padding: 10px;
 }
 
 .menu-area {

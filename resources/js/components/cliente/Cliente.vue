@@ -77,15 +77,8 @@ export default {
             axios.post('/api/salvar-cliente', this.cliente).then((response) => {
                 if (response.status === 200) {
                     console.log('cliente salvo com sucesso!');
-                    this.obterListaClientes();
                 }
             })
-        },
-
-        obterListaClientes: async function() {
-            await axios.get('/api/obter-lista-clientes').then((response) => {
-                clientes.value = response.data.clientes;
-            });
         },
 
         deletarCliente: function (cliente) {
@@ -108,7 +101,6 @@ export default {
             axios.post('/api/editar-cliente', this.cliente).then((response) => {
                 if (response.status === 200) {
                     console.log('cliente editado com sucesso!');
-                    this.obterListaClientes();
                 }
             })
         }
